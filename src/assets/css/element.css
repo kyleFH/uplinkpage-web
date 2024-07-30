@@ -1,0 +1,39 @@
+.el-pagination {
+  --el-pagination-bg-color: transparent !important;
+  --el-pagination-button-disabled-bg-color: transparent !important;
+
+  button {
+    color: #000000;
+  }
+
+  button:disabled {
+    @apply bg-transparent;
+    color: #a8abb2;
+  }
+
+  .el-pager li {
+    color: black;
+  }
+  .el-pager li:hover {
+    /* color: black; */
+  }
+
+  .el-pager li.is-active {
+    color: white;
+    @apply rounded-[8px] bg-black;
+  }
+
+  .el-pagination button:disabled {
+    @apply bg-transparent !important;
+  }
+}
+
+.el-select {
+}
+.el-select__wrapper {
+  @apply h-full rounded-[12px]   !important;
+}
+
+.el-input__wrapper {
+  @apply h-full !important;
+}

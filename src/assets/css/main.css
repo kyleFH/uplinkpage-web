@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+*,
+*::before,
+*::after {
+  --cmc-purple: #4454e4;
+  --cmc-green: #38fbdb;
+  --cmc-red: #ff008d;
+  --cmc-orange: #ff901c;
+  --cmc-dark-grey: #333333;
+  --cmc-mid-grey: #757a7e;
+  --cmc-pale-grey: #e8e8e8;
+  --cmc-light-grey: #f8f8f8;
+  --cmc-error: #b4000b;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  line-height: 1.6;
+  font-family: 'Favorit Trial Regular', 'Passion One Regular';
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: 'Geist Light';
+  font-weight: 400;
+  font-display: block;
+  src:
+    url('/fonts/Geist-Light.woff2') format('woff2'),
+    url('/fonts/Geist-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Geist Regular';
+  font-weight: 400;
+  font-display: block;
+  src:
+    url('/fonts/Geist-Regular.woff2') format('woff2'),
+    url('/fonts/Geist-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'PPSupplySans Regular';
+  font-weight: 400;
+  font-display: block;
+  src:
+    url('/fonts/PPSupplySans-Regular.woff2') format('woff2'),
+    url('/fonts/PPSupplySans-Regular.woff') format('woff');
+}
+
+.popup-dialog {
+  border-radius: 20px;
+}
+
+.gui-wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  pointer-events: all;
+  z-index: 1000;
+}
+
+.gui-wrap > .main {
+  pointer-events: all;
+  max-height: 100%;
+  overflow: auto;
+}
+
+.dg li.gui-stats:not(.folder) {
+  height: auto;
+}
+
+ul {
+  list-style: inside;
+}
