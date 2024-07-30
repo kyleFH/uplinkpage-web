@@ -56,6 +56,48 @@ export function getGroundValue(value: string) {
       shouldBeIssued: "20", //应收
       actualDelivery: "20", //实收
     },
+    {
+      id: "",
+      name: "公路交通气象基本要素资料",
+      actualReceiptReceivable: "3/3", //实收/应收
+      ActualShouldIssued: "4/4", //实发/应发
+      info: "没有问题", //详情
+      ReasonsMissingReports: "", //缺报原因
+      isMissingReports: "1", //是否确报
+      time: "00",
+      receivable: "10", //应发
+      officialReceipts: "10", //实发
+      shouldBeIssued: "20", //应收
+      actualDelivery: "20", //实收
+    },
+    {
+      id: "",
+      name: "公路交通气象基本要素资料",
+      actualReceiptReceivable: "3/3", //实收/应收
+      ActualShouldIssued: "4/4", //实发/应发
+      info: "没有问题", //详情
+      ReasonsMissingReports: "", //缺报原因
+      isMissingReports: "1", //是否确报
+      time: "00",
+      receivable: "10", //应发
+      officialReceipts: "10", //实发
+      shouldBeIssued: "20", //应收
+      actualDelivery: "20", //实收
+    },
+    {
+      id: "",
+      name: "公路交通气象基本要素资料",
+      actualReceiptReceivable: "3/3", //实收/应收
+      ActualShouldIssued: "4/4", //实发/应发
+      info: "没有问题", //详情
+      ReasonsMissingReports: "", //缺报原因
+      isMissingReports: "1", //是否确报
+      time: "00",
+      receivable: "10", //应发
+      officialReceipts: "10", //实发
+      shouldBeIssued: "20", //应收
+      actualDelivery: "20", //实收
+    },
   ];
 
   let data_01 = [
@@ -81,6 +123,48 @@ export function getGroundValue(value: string) {
       info: "没有问题", //详情
       ReasonsMissingReports: "", //缺报原因
       isMissingReports: "2", //是否确报
+      time: "00",
+      receivable: "10", //应发
+      officialReceipts: "10", //实发
+      shouldBeIssued: "20", //应收
+      actualDelivery: "20", //实收
+    },
+    {
+      id: "",
+      name: "公路交通气象基本要素资料",
+      actualReceiptReceivable: "3/3", //实收/应收
+      ActualShouldIssued: "4/4", //实发/应发
+      info: "没有问题", //详情
+      ReasonsMissingReports: "", //缺报原因
+      isMissingReports: "3", //是否确报
+      time: "00",
+      receivable: "10", //应发
+      officialReceipts: "10", //实发
+      shouldBeIssued: "20", //应收
+      actualDelivery: "20", //实收
+    },
+    {
+      id: "",
+      name: "公路交通气象基本要素资料",
+      actualReceiptReceivable: "3/3", //实收/应收
+      ActualShouldIssued: "4/4", //实发/应发
+      info: "没有问题", //详情
+      ReasonsMissingReports: "", //缺报原因
+      isMissingReports: "3", //是否确报
+      time: "00",
+      receivable: "10", //应发
+      officialReceipts: "10", //实发
+      shouldBeIssued: "20", //应收
+      actualDelivery: "20", //实收
+    },
+    {
+      id: "",
+      name: "公路交通气象基本要素资料",
+      actualReceiptReceivable: "3/3", //实收/应收
+      ActualShouldIssued: "4/4", //实发/应发
+      info: "没有问题", //详情
+      ReasonsMissingReports: "", //缺报原因
+      isMissingReports: "3", //是否确报
       time: "00",
       receivable: "10", //应发
       officialReceipts: "10", //实发
@@ -183,6 +267,48 @@ export function getHighAltitudeValue(value: string) {
         shouldBeIssued: "20", //应收
         actualDelivery: "20", //实收
       },
+      {
+        id: "",
+        name: "公路交通气象基本要素资料",
+        actualReceiptReceivable: "3/3", //实收/应收
+        ActualShouldIssued: "4/4", //实发/应发
+        info: "没有问题", //详情
+        ReasonsMissingReports: "", //缺报原因
+        isMissingReports: "1", //是否确报
+        time: "00",
+        receivable: "10", //应发
+        officialReceipts: "10", //实发
+        shouldBeIssued: "20", //应收
+        actualDelivery: "20", //实收
+      },
+      {
+        id: "",
+        name: "公路交通气象基本要素资料",
+        actualReceiptReceivable: "3/3", //实收/应收
+        ActualShouldIssued: "4/4", //实发/应发
+        info: "没有问题", //详情
+        ReasonsMissingReports: "", //缺报原因
+        isMissingReports: "1", //是否确报
+        time: "00",
+        receivable: "10", //应发
+        officialReceipts: "10", //实发
+        shouldBeIssued: "20", //应收
+        actualDelivery: "20", //实收
+      },
+      {
+        id: "",
+        name: "公路交通气象基本要素资料",
+        actualReceiptReceivable: "3/3", //实收/应收
+        ActualShouldIssued: "4/4", //实发/应发
+        info: "没有问题", //详情
+        ReasonsMissingReports: "", //缺报原因
+        isMissingReports: "1", //是否确报
+        time: "00",
+        receivable: "10", //应发
+        officialReceipts: "10", //实发
+        shouldBeIssued: "20", //应收
+        actualDelivery: "20", //实收
+      },
     ];
   
     let data_01 = [
@@ -208,6 +334,48 @@ export function getHighAltitudeValue(value: string) {
         info: "没有问题", //详情
         ReasonsMissingReports: "", //缺报原因
         isMissingReports: "2", //是否确报
+        time: "00",
+        receivable: "10", //应发
+        officialReceipts: "10", //实发
+        shouldBeIssued: "20", //应收
+        actualDelivery: "20", //实收
+      },
+      {
+        id: "",
+        name: "公路交通气象基本要素资料",
+        actualReceiptReceivable: "3/3", //实收/应收
+        ActualShouldIssued: "4/4", //实发/应发
+        info: "没有问题", //详情
+        ReasonsMissingReports: "", //缺报原因
+        isMissingReports: "3", //是否确报
+        time: "00",
+        receivable: "10", //应发
+        officialReceipts: "10", //实发
+        shouldBeIssued: "20", //应收
+        actualDelivery: "20", //实收
+      },
+      {
+        id: "",
+        name: "公路交通气象基本要素资料",
+        actualReceiptReceivable: "3/3", //实收/应收
+        ActualShouldIssued: "4/4", //实发/应发
+        info: "没有问题", //详情
+        ReasonsMissingReports: "", //缺报原因
+        isMissingReports: "3", //是否确报
+        time: "00",
+        receivable: "10", //应发
+        officialReceipts: "10", //实发
+        shouldBeIssued: "20", //应收
+        actualDelivery: "20", //实收
+      },
+      {
+        id: "",
+        name: "公路交通气象基本要素资料",
+        actualReceiptReceivable: "3/3", //实收/应收
+        ActualShouldIssued: "4/4", //实发/应发
+        info: "没有问题", //详情
+        ReasonsMissingReports: "", //缺报原因
+        isMissingReports: "3", //是否确报
         time: "00",
         receivable: "10", //应发
         officialReceipts: "10", //实发

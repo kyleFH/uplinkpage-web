@@ -3,17 +3,26 @@
     <div class="flex flex-row w-full justify-start items-center gap-4 p-4">
       <div
         v-for="item in timeValue"
-        class="flex flex-row justify-center items-center w-20 h-10 border"
+        class="flex flex-row justify-center items-center w-[90px] h-10 border"
         :class="item.active ? 'bg-blue-400' : ''"
       >
-        <button @click="changeTime(item.value)" class="w-full h-full">
-          {{ item.name === formattedHour ? '当前时次': item.name}}
+        <button @click="changeTime(item.value)" class="w-full h-full flex flex-row  justify-center items-center gap-1">
+          {{ item.name === formattedHour ? "当前时次" : item.name }}<div v-if=" [2,12,16].includes(Number(item.name)) || item.name === formattedHour" class=" h-5 w-5 text-white bg-red-500 rounded-[20px]">{{ 2 }}</div>
         </button>
       </div>
     </div>
-   <Content v-if="isNowValue" :nowValue="nowValue" :HighAltitude="HighAltitude"/>
-   <ContentHistory v-else :nowValue="nowValue" :HighAltitude="HighAltitude"/>
+    <span class="w-full flex gap-4 p-4">
+      <p>网络值班员:陈凯华13920000000</p>
+      <p>会商值班员:吴迪13920000000</p>
+      <p>应急值班员:姚程1392000000</p>
+    </span>
 
+    <Content
+      v-if="isNowValue"
+      :nowValue="nowValue"
+      :HighAltitude="HighAltitude"
+    />
+    <ContentHistory v-else :nowValue="nowValue" :HighAltitude="HighAltitude" />
   </div>
 </template>
 
@@ -21,16 +30,13 @@
 import { ref, onMounted } from "vue";
 import { Api } from "@/json/api";
 
-import Content from '@/components/uploadhome/Content.vue'
-import ContentHistory from '@/components/uploadhome/ContentHistory.vue'
-
-
+import Content from "@/components/uploadhome/Content.vue";
+import ContentHistory from "@/components/uploadhome/ContentHistory.vue";
 
 const formattedHour = ref();
-const isNowValue = ref(true)
+const isNowValue = ref(true);
 const nowValue = ref<nowValueType[]>([]);
 const HighAltitude = ref<nowValueType[]>([]);
-
 
 const timeValue = ref<timeValueType[]>([]);
 const morning = ref([
@@ -54,7 +60,7 @@ const morning = ref([
 
 const afternoon = ref([
   { name: "12", value: "12", active: true },
-  { name: "13", value: "13", active: false },
+  { name: "13", value: "13", active: false  },
   { name: "14", value: "14", active: false },
   { name: "15", value: "15", active: false },
   { name: "16", value: "16", active: false },
@@ -69,11 +75,10 @@ const afternoon = ref([
 
 onMounted(() => {
   getCurrentHour();
-  
 });
 
 const changeTime = (v) => {
-  isNowValue.value = formattedHour.value === v
+  isNowValue.value = formattedHour.value === v;
   timeValue.value.map((item, index) => {
     if (item.value === v) {
       item.active = true;
@@ -84,9 +89,6 @@ const changeTime = (v) => {
   });
   nowValue.value = Api.getGroundValue(v);
   HighAltitude.value = Api.getHighAltitudeValue(v);
-
-  
-
 };
 
 const getCurrentHour = () => {

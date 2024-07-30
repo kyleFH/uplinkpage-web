@@ -1,11 +1,11 @@
 <template>
-  <div class="flex justify-start items-center w-full p-4 flex-col">
-    <div class="flex flex-wrap flex-col justify-start w-full">
+  <div class="flex justify-start items-center w-full p-4 flex-col gap-8">
+    <div class="flex flex-wrap flex-col justify-start w-full gap-2">
       <p>地图气象资料</p>
       <div class="w-full flex flex-wrap flex-row justify-start gap-4">
         <div
           v-for="item in nowValue"
-          class="w-[280px] h-[180px] flex flex-col p-2 text-white"
+          class="card-style "
           :class="{
             'bg-green-500': item.isMissingReports === '1',
             ' bg-yellow-500': item.isMissingReports === '2',
@@ -23,12 +23,12 @@
         </div>
       </div>
     </div>
-    <div class="flex flex-wrap flex-col justify-start w-full">
+    <div class="flex flex-wrap flex-col justify-start w-full gap-2">
       <p>高空气象资料</p>
       <div class="w-full flex flex-wrap flex-row justify-start gap-4">
         <div
           v-for="item in HighAltitude"
-          class="w-[280px] h-[180px] flex flex-col p-2 text-white"
+          class="card-style"
           :class="{
             'bg-green-500': item.isMissingReports === '1',
             ' bg-yellow-500': item.isMissingReports === '2',
@@ -178,5 +178,9 @@ const tableData = [
 <style>
 .button-style {
   @apply flex justify-start items-center;
+}
+
+.card-style {
+  @apply w-[200px] h-[200px] flex flex-col p-2 rounded-lg text-white  shadow-xl;
 }
 </style>
