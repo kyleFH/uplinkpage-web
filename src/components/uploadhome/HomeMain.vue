@@ -1,7 +1,9 @@
 <template>
   <div class="flex flex-col p-10">
     <HeaderSection />
-    <NowInfoPage />
+    <NowInfoPage v-if="pageNumberValue == 0" />
+    <Bottompage v-if="pageNumberValue == 1" />
+    <Uppage v-if="pageNumberValue == 2" />
   </div>
 </template>
 
@@ -11,10 +13,13 @@ import { useDialogStore } from "@/stores/dialog";
 
 import NowInfoPage from "@/components/uploadhome/NowInfoPage.vue";
 import HeaderSection from "@/components/header/HeaderSection.vue";
+import Bottompage from "@/components/bottompage/Bottompage.vue";
+import Uppage from "@/components/uppage/Uppage.vue";
 
 // Pinia store for dialog visibility
 const dialogStore = useDialogStore();
-const { dialogVisible } = storeToRefs(dialogStore);
+const { dialogVisible, pageNumberValue } = storeToRefs(dialogStore);
+
 </script>
 
 <style scoped>

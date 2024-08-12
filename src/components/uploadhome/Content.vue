@@ -1,9 +1,9 @@
 <template>
   <div class="flex justify-start items-center w-full p-4 flex-col gap-8">
     <div
-      class="flex flex-wrap flex-col justify-start w-full gap-2 border-2 border-blue-400 p-2"
+      class="flex flex-wrap flex-col justify-start w-full gap-2  p-2"
     >
-      <p>地图气象资料</p>
+      <p class=" flex flex-wrap items-center gap-2"><div class=" bg-blue-500 w-1 h-4 "></div>地图气象资料</p>
       <div class="w-full flex flex-wrap flex-row justify-start gap-4 p-4">
         <div
           v-for="item in nowValue"
@@ -14,7 +14,7 @@
             ' bg-red-500': item.isMissingReports === '3',
           }"
         >
-          <p class="text-[20px] font-semibold bg-black/50 p-2">
+          <p class="text-[20px] font-semibold bg-black/40 p-2">
             数据名称：{{ item.name }}
           </p>
           <p>实收/应收:{{ item.receivable }} / {{ item.officialReceipts }}</p>
@@ -30,9 +30,9 @@
       </div>
     </div>
     <div
-      class="flex flex-wrap flex-col justify-start w-full gap-2 border-2 border-blue-400 p-2"
+      class="flex flex-wrap flex-col justify-start w-full gap-2  p-2"
     >
-      <p>高空气象资料</p>
+    <p class=" flex flex-wrap items-center gap-2"><div class=" bg-blue-500 w-1 h-4 "></div>高空气象资料</p>
       <div class="w-full flex flex-wrap flex-row justify-start gap-4">
         <div
           v-for="item in HighAltitude"
@@ -43,7 +43,7 @@
             ' bg-red-500': item.isMissingReports === '3',
           }"
         >
-          <p class="text-[20px] font-semibold bg-black/50 p-2">
+          <p class="text-[20px] font-semibold bg-black/40 p-2">
             数据名称：{{ item.name }}
           </p>
           <p>实收/应收:{{ item.actualReceiptReceivable }}</p>
@@ -100,7 +100,7 @@
         v-for="item in tableHeader"
         :prop="item.prop"
         :label="item.label"
-        width="150"
+        width="200"
       />
     </el-table>
   </el-drawer>
@@ -123,14 +123,14 @@
         v-for="item in tableHeaderMiss"
         :prop="item.prop"
         :label="item.label"
-        width="150"
+        width="200"
       >
         <template #default>
           <el-button
             v-if="item.prop == 'name7'"
             type="primary"
             size="small"
-            width="150"
+            width="200"
           >
             缺报原因填写
           </el-button>
@@ -234,6 +234,6 @@ const tableData = [
 }
 
 .card-style {
-  @apply w-[250px] h-[250px] flex flex-col p-2 rounded-lg text-white  shadow-xl;
+  @apply w-[250px] h-[250px] flex flex-col p-2 rounded-lg text-white text-[18px]  shadow-xl;
 }
 </style>

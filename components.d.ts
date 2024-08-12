@@ -40,6 +40,7 @@ declare module 'vue' {
     Resource: typeof import('./src/components/home/Resource.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    TimeLine: typeof import('./src/components/base/timeLine.vue')['default']
     Uppage: typeof import('./src/components/uppage/Uppage.vue')['default']
   }
 }

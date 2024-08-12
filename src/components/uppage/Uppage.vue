@@ -1,6 +1,7 @@
 <template>
   <div class="flex flex-col p-10">
-    <HeaderSection />
+    <!-- <HeaderSection /> -->
+     <TimeLine />
     <el-table :data="tableData" style="width: 100%">
       <el-table-column
         v-for="item in tableHeader"
@@ -14,6 +15,9 @@
 
 <script setup lang="ts">
 import HeaderSection from "@/components/header/HeaderSection.vue";
+import TimeLine from "@/components/base/timeLine.vue";
+
+
 const tableHeader = [
   { prop: "name1", label: "站点编码" },
   { prop: "name2", label: "应入" },

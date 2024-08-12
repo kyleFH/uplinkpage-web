@@ -5,6 +5,7 @@ export const useDialogStore = defineStore("dialog", {
     return {
       dialogVisible: false,
       isDisplayAlarm: false,
+      pageNumberValue: 0
     };
   },
   getters: {},
