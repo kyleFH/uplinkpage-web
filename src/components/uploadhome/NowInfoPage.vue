@@ -4,10 +4,19 @@
       <div
         v-for="item in timeValue"
         class="flex flex-row justify-center items-center w-[90px] h-10 border"
-        :class="item.active ? 'bg-blue-400' : ''"
+        :class="item.active ? 'bg-blue-200' : ''"
       >
-        <button @click="changeTime(item.value)" class="w-full h-full flex flex-row  justify-center items-center gap-1">
-          {{ item.name === formattedHour ? "当前时次" : item.name }}<div v-if=" [2,12,16].includes(Number(item.name)) || item.name === formattedHour" class=" h-5 w-5 text-white bg-red-500 rounded-[20px]">{{ 2 }}</div>
+        <button
+          @click="changeTime(item.value)"
+          class="w-full h-full flex flex-row justify-center items-center gap-1 font-semibold"
+          :class="
+            [2, 12, 16].includes(Number(item.name)) ||
+            item.name === formattedHour
+              ? ' text-red-500'
+              : ''
+          "
+        >
+          {{ item.name === formattedHour ? "当前时次" : item.name + "时" }}
         </button>
       </div>
     </div>
@@ -21,8 +30,14 @@
       v-if="isNowValue"
       :nowValue="nowValue"
       :HighAltitude="HighAltitude"
+      :formattedHour="formattedHour"
     />
-    <ContentHistory v-else :nowValue="nowValue" :HighAltitude="HighAltitude" />
+    <ContentHistory
+      v-else
+      :nowValue="nowValue"
+      :HighAltitude="HighAltitude"
+      :formattedHour="formattedHour"
+    />
   </div>
 </template>
 
@@ -60,7 +75,7 @@ const morning = ref([
 
 const afternoon = ref([
   { name: "12", value: "12", active: true },
-  { name: "13", value: "13", active: false  },
+  { name: "13", value: "13", active: false },
   { name: "14", value: "14", active: false },
   { name: "15", value: "15", active: false },
   { name: "16", value: "16", active: false },

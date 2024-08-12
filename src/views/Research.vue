@@ -5,5 +5,5 @@
 </template>
 
 <script setup lang="ts">
-import Research from '@/components/research/Research.vue'
+import Research from "@/components/research/Research.vue";
 </script>

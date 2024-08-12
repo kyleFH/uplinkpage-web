@@ -1,12 +1,12 @@
-import { defineStore } from 'pinia'
+import { defineStore } from "pinia";
 
-export const useDialogStore = defineStore('dialog', {
+export const useDialogStore = defineStore("dialog", {
   state: () => {
     return {
       dialogVisible: false,
-      isDisplayAlarm: false
-    }
+      isDisplayAlarm: false,
+    };
   },
   getters: {},
-  actions: {}
-})
+  actions: {},
+});

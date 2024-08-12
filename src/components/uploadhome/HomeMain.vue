@@ -6,15 +6,15 @@
 </template>
 
 <script setup lang="ts">
-import { storeToRefs } from 'pinia'
-import { useDialogStore } from '@/stores/dialog'
+import { storeToRefs } from "pinia";
+import { useDialogStore } from "@/stores/dialog";
 
-import NowInfoPage from '@/components/uploadhome/NowInfoPage.vue'
-import HeaderSection from '@/components/header/HeaderSection.vue'
+import NowInfoPage from "@/components/uploadhome/NowInfoPage.vue";
+import HeaderSection from "@/components/header/HeaderSection.vue";
 
 // Pinia store for dialog visibility
-const dialogStore = useDialogStore()
-const { dialogVisible } = storeToRefs(dialogStore)
+const dialogStore = useDialogStore();
+const { dialogVisible } = storeToRefs(dialogStore);
 </script>
 
 <style scoped>

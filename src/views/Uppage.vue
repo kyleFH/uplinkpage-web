@@ -5,5 +5,5 @@
 </template>
 
 <script setup lang="ts">
-import Uppage from '@/components/uppage/Uppage.vue'
+import Uppage from "@/components/uppage/Uppage.vue";
 </script>

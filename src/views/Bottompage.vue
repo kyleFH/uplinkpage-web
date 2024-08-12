@@ -5,5 +5,5 @@
 </template>
 
 <script setup lang="ts">
-import Bottompage from '@/components/bottompage/Bottompage.vue'
+import Bottompage from "@/components/bottompage/Bottompage.vue";
 </script>

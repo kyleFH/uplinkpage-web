@@ -1,29 +1,37 @@
 <template>
   <div class="flex justify-start items-center w-full p-4 flex-col gap-8">
-    <div class="flex flex-wrap flex-col justify-start w-full gap-2">
+    <div
+      class="flex flex-wrap flex-col justify-start w-full gap-2 border-2 border-blue-400 p-2"
+    >
       <p>地图气象资料</p>
-      <div class="w-full flex flex-wrap flex-row justify-start gap-4">
+      <div class="w-full flex flex-wrap flex-row justify-start gap-4 p-4">
         <div
           v-for="item in nowValue"
-          class="card-style "
+          class="card-style"
           :class="{
             'bg-green-500': item.isMissingReports === '1',
             ' bg-yellow-500': item.isMissingReports === '2',
             ' bg-red-500': item.isMissingReports === '3',
           }"
         >
-          <p>{{ item.name }}</p>
+          <p class="text-[20px] font-semibold bg-black/50 p-2">
+            数据名称：{{ item.name }}
+          </p>
           <p>实收/应收:{{ item.receivable }} / {{ item.officialReceipts }}</p>
           <p>实发/应发:{{ item.shouldBeIssued }} / {{ item.actualDelivery }}</p>
           <button @click="drawer = true" class="button-style">告警功能</button>
-          <button @click="drawer = true" class="button-style">查看详情</button>
+          <button @click="drawerInfo = true" class="button-style">
+            查看详情
+          </button>
           <button @click="drawerMiss = true" class="button-style">
             缺报原因填写
           </button>
         </div>
       </div>
     </div>
-    <div class="flex flex-wrap flex-col justify-start w-full gap-2">
+    <div
+      class="flex flex-wrap flex-col justify-start w-full gap-2 border-2 border-blue-400 p-2"
+    >
       <p>高空气象资料</p>
       <div class="w-full flex flex-wrap flex-row justify-start gap-4">
         <div
@@ -35,11 +43,15 @@
             ' bg-red-500': item.isMissingReports === '3',
           }"
         >
-          <p>{{ item.name }}</p>
+          <p class="text-[20px] font-semibold bg-black/50 p-2">
+            数据名称：{{ item.name }}
+          </p>
           <p>实收/应收:{{ item.actualReceiptReceivable }}</p>
           <p>实发/应发:{{ item.actualReceiptReceivable }}</p>
           <button @click="drawer = true" class="button-style">告警功能</button>
-          <button @click="drawer = true" class="button-style">查看详情</button>
+          <button @click="drawerInfo = true" class="button-style">
+            查看详情
+          </button>
           <button @click="drawerMiss = true" class="button-style">
             缺报原因填写
           </button>
@@ -52,8 +64,37 @@
     title=" "
     :with-header="false"
     size="80%"
+    class="w-full flex justify-center items-center"
+  >
+    <div
+      class="flex justify-center items-center font-bold text-center text-[24px] h-20"
+    >
+      公路交通气象基本要素资料传输情况
+    </div>
+
+    <el-table :data="tableData" style="width: 100%">
+      <el-table-column
+        v-for="item in tableHeader"
+        :prop="item.prop"
+        :label="item.label"
+        width="200"
+        class="text-center"
+      />
+    </el-table>
+  </el-drawer>
+
+  <el-drawer
+    v-model="drawerInfo"
+    title=" "
+    :with-header="false"
+    size="80%"
     class="w-full"
   >
+    <div
+      class="flex justify-center items-center font-bold text-center text-[24px] h-20"
+    >
+      公路交通气象基本要素资料传输情况
+    </div>
     <el-table :data="tableData" style="width: 100%">
       <el-table-column
         v-for="item in tableHeader"
@@ -72,6 +113,11 @@
     size="80%"
     class="w-full"
   >
+    <div
+      class="flex justify-center items-center font-bold text-center text-[24px] h-20"
+    >
+      公路交通气象基本要素资料传输情况
+    </div>
     <el-table :data="tableData" style="width: 100%">
       <el-table-column
         v-for="item in tableHeaderMiss"
@@ -80,7 +126,12 @@
         width="150"
       >
         <template #default>
-          <el-button v-if="item.prop == 'name7'" type="primary" size="small" width="150">
+          <el-button
+            v-if="item.prop == 'name7'"
+            type="primary"
+            size="small"
+            width="150"
+          >
             缺报原因填写
           </el-button>
         </template>
@@ -95,12 +146,14 @@ import { Api } from "@/json/api";
 import { dialogProps } from "element-plus";
 
 const drawer = ref(false);
+const drawerInfo = ref(false);
 // const drawer = ref(false)
 const drawerMiss = ref(false);
 
 const props = defineProps<{
   nowValue: nowValueType[];
   HighAltitude: nowValueType[];
+  formattedHour: string;
 }>();
 
 const tableHeader = [
@@ -177,10 +230,10 @@ const tableData = [
 
 <style>
 .button-style {
-  @apply flex justify-start items-center;
+  @apply flex justify-start items-center underline;
 }
 
 .card-style {
-  @apply w-[200px] h-[200px] flex flex-col p-2 rounded-lg text-white  shadow-xl;
+  @apply w-[250px] h-[250px] flex flex-col p-2 rounded-lg text-white  shadow-xl;
 }
 </style>

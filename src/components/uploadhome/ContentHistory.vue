@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col w-full justify-start">
-    <div class="flex flex-wrap flex-col  w-full p-4">
+    <div class="flex flex-wrap flex-col w-full p-4">
       <p>地图气象资料</p>
       <div class="w-full flex flex-wrap flex-row justify-start gap-4">
         <div>
@@ -55,7 +55,7 @@
               :prop="item.prop"
               :label="item.label"
               width="180"
-            ><template #default>
+              ><template #default>
                 <el-button
                   v-if="item.prop == 'ReasonsMissingReports'"
                   link

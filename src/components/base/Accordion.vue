@@ -1,14 +1,25 @@
 <template>
   <div class="accordion">
-    <div v-for="(item, index) in items" :key="index" class="accordion-item border-t border-gray-300">
+    <div
+      v-for="(item, index) in items"
+      :key="index"
+      class="accordion-item border-t border-gray-300"
+    >
       <div
         class="accordion-header py-4 cursor-pointer bg-white flex justify-between items-center gap-6"
         @click="toggle(index)"
       >
-        <span class="text-[#1d1d1e] text-xl font-normal font-ppsupplySans-regular leading-relaxed">{{
-          item.title
-        }}</span>
-        <span class="scale-150" :class="{ 'transform rotate-45': activeIndex === index, 'transition-transform': true }">
+        <span
+          class="text-[#1d1d1e] text-xl font-normal font-ppsupplySans-regular leading-relaxed"
+          >{{ item.title }}</span
+        >
+        <span
+          class="scale-150"
+          :class="{
+            'transform rotate-45': activeIndex === index,
+            'transition-transform': true,
+          }"
+        >
           +
         </span>
       </div>
@@ -23,20 +34,20 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref } from "vue";
 
 const props = defineProps({
   items: {
     type: Array,
-    required: true
-  }
-})
+    required: true,
+  },
+});
 
-const activeIndex = ref(null)
+const activeIndex = ref(null);
 
 const toggle = (index) => {
-  activeIndex.value = activeIndex.value === index ? null : index
-}
+  activeIndex.value = activeIndex.value === index ? null : index;
+};
 </script>
 
 <style scoped>

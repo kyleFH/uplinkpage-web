@@ -6,5 +6,5 @@
   <footer></footer>
 </template>
 <script setup lang="ts">
-import HomeMain from '@/components/uploadhome/HomeMain.vue'
+import HomeMain from "@/components/uploadhome/HomeMain.vue";
 </script>

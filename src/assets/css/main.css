@@ -25,7 +25,7 @@ body {
     color 0.5s,
     background-color 0.5s;
   line-height: 1.6;
-  font-family: 'Favorit Trial Regular', 'Passion One Regular';
+  font-family: "Favorit Trial Regular", "Passion One Regular";
   font-size: 15px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -33,30 +33,30 @@ body {
 }
 
 @font-face {
-  font-family: 'Geist Light';
+  font-family: "Geist Light";
   font-weight: 400;
   font-display: block;
   src:
-    url('/fonts/Geist-Light.woff2') format('woff2'),
-    url('/fonts/Geist-Light.woff') format('woff');
+    url("/fonts/Geist-Light.woff2") format("woff2"),
+    url("/fonts/Geist-Light.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'Geist Regular';
+  font-family: "Geist Regular";
   font-weight: 400;
   font-display: block;
   src:
-    url('/fonts/Geist-Regular.woff2') format('woff2'),
-    url('/fonts/Geist-Regular.woff') format('woff');
+    url("/fonts/Geist-Regular.woff2") format("woff2"),
+    url("/fonts/Geist-Regular.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'PPSupplySans Regular';
+  font-family: "PPSupplySans Regular";
   font-weight: 400;
   font-display: block;
   src:
-    url('/fonts/PPSupplySans-Regular.woff2') format('woff2'),
-    url('/fonts/PPSupplySans-Regular.woff') format('woff');
+    url("/fonts/PPSupplySans-Regular.woff2") format("woff2"),
+    url("/fonts/PPSupplySans-Regular.woff") format("woff");
 }
 
 .popup-dialog {
