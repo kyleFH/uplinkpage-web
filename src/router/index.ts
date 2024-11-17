@@ -7,16 +7,6 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("../views/Home.vue"),
   },
   {
-    path: "/research",
-    name: "Hesearch",
-    component: () => import("../views/Research.vue"),
-  },
-  {
-    path: "/about",
-    name: "About",
-    component: () => import("../views/About.vue"),
-  },
-  {
     path: "/uppage",
     name: "Uppage",
     component: () => import("../views/Uppage.vue"),

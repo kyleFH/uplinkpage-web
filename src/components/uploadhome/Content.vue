@@ -123,17 +123,31 @@
         v-for="item in tableHeaderMiss"
         :prop="item.prop"
         :label="item.label"
-        width="200"
+        width="250"
       >
         <template #default>
-          <el-button
+          <!-- <el-button
             v-if="item.prop == 'name7'"
             type="primary"
             size="small"
             width="200"
           >
             缺报原因填写
-          </el-button>
+          </el-button> -->
+          <el-select
+          v-if="item.prop == 'name7'"
+      v-model="value"
+      placeholder="选择常见的缺报原因"
+      size="large"
+      style="width: 180px"
+    >
+      <el-option
+        v-for="item in options"
+        :key="item.value"
+        :label="item.label"
+        :value="item.value"
+      />
+    </el-select>
         </template>
       </el-table-column>
     </el-table>
@@ -146,6 +160,7 @@ import { Api } from "@/json/api";
 import { dialogProps } from "element-plus";
 
 const drawer = ref(false);
+const value = ref('')
 const drawerInfo = ref(false);
 // const drawer = ref(false)
 const drawerMiss = ref(false);
@@ -226,6 +241,50 @@ const tableData = [
     name6: "缺收",
   },
 ];
+
+const options = [
+  {
+    value: '该站网络故障',
+    label: '该站网络故障',
+  },
+  {
+    value: '该站通讯信号不稳定',
+    label: '该站通讯信号不稳定',
+  },
+  {
+    value: '测站通讯故障',
+    label: '测站通讯故障',
+  },
+  {
+    value: '国家局ftp堵塞',
+    label: '国家局ftp堵塞',
+  },
+  {
+    value: '该站发报软件故障',
+    label: '该站发报软件故障',
+  },
+  {
+    value: '169服务器传输软件故障',
+    label: '169服务器传输软件故障',
+  },
+  {
+    value: '194服务器传输软件故障',
+    label: '194服务器传输软件故障',
+  },
+  {
+    value: '雷达研试中心传输软件故障',
+    label: '雷达研试中心传输软件故障',
+  },
+  {
+    value: '市局CTS分发故障',
+    label: '市局CTS分发故障',
+  },
+  {
+    value: '该站雷达传输软件故障',
+    label: '该站雷达传输软件故障',
+  },
+]
+
 </script>
 
 <style>
