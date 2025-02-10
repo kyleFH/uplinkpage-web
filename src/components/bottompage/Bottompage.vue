@@ -14,7 +14,6 @@
 </template>
 
 <script setup lang="ts">
-import HeaderSection from "@/components/header/HeaderSection.vue";
 import TimeLine from "@/components/base/timeLine.vue";
 
 const tableHeader = [

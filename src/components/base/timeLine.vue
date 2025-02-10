@@ -33,8 +33,6 @@
   import { ref, onMounted } from "vue";
   import { Api } from "@/json/api";
   
-  import Content from "@/components/uploadhome/Content.vue";
-  import ContentHistory from "@/components/uploadhome/ContentHistory.vue";
   
   const formattedHour = ref();
   const isNowValue = ref(true);
@@ -82,7 +80,7 @@
   
   const changeTime = (v) => {
     isNowValue.value = formattedHour.value === v;
-    timeValue.value.map((item, index) => {
+    timeValue.value.map((item) => {
       if (item.value === v) {
         item.active = true;
       } else {

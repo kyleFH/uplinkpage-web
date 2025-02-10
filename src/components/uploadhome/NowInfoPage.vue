@@ -23,7 +23,7 @@
     <span class="w-full flex gap-4 p-4">
       <p>网络值班员:陈凯华13920000000</p>
       <p>会商值班员:吴迪13920000000</p>
-      <p>应急值班员:姚程1392000000</p>
+      <p>应急值班员:姚程1392000000---</p>
     </span>
 
     <Content
@@ -44,16 +44,22 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import { Api } from "@/json/api";
-
+// import axios from 'axios';
 import Content from "@/components/uploadhome/Content.vue";
 import ContentHistory from "@/components/uploadhome/ContentHistory.vue";
+import {
+  getJkresultList,
+  getQueryCTSsendByDataTypeAndDatatimeAndSenduser,
+} from "@/unit/api.ts";
 
 const formattedHour = ref();
 const isNowValue = ref(true);
-const nowValue = ref<nowValueType[]>([]);
-const HighAltitude = ref<nowValueType[]>([]);
+const nowValue = ref();
+const HighAltitude = ref();
 
 const timeValue = ref<timeValueType[]>([]);
+
+const formattedDate = ref();
 const morning = ref([
   {
     name: "00",
@@ -92,9 +98,9 @@ onMounted(() => {
   getCurrentHour();
 });
 
-const changeTime = (v) => {
+const changeTime = async (v) => {
   isNowValue.value = formattedHour.value === v;
-  timeValue.value.map((item, index) => {
+  timeValue.value.map((item) => {
     if (item.value === v) {
       item.active = true;
     } else {
@@ -102,11 +108,13 @@ const changeTime = (v) => {
     }
     return item;
   });
-  nowValue.value = Api.getGroundValue(v);
-  HighAltitude.value = Api.getHighAltitudeValue(v);
+  nowValue.value = await handleGetJkresultIiiiiList("地面资料", v);
+  HighAltitude.value = await handleGetJkresultIiiiiList("高空资料", v);
+
+  // console.log("nowValue,HighAltitude", nowValue.value, HighAltitude.value);
 };
 
-const getCurrentHour = () => {
+const getCurrentHour = async () => {
   const now = new Date();
   let hours = now.getHours();
   let hourValue = hours < 10 ? "0" + hours : hours.toString();
@@ -116,9 +124,166 @@ const getCurrentHour = () => {
   } else {
     timeValue.value = [...morning.value];
   }
-  nowValue.value = Api.getGroundValue(hourValue);
-  HighAltitude.value = Api.getHighAltitudeValue(hourValue);
+
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, "0"); // 确保月份是两位数
+  const day = String(now.getDate()).padStart(2, "0"); // 确保日期是两位数
+
+  formattedDate.value = `${year}-${month}-${day}`;
 
   changeTime(hourValue);
+
+  // let dataTime = formatDateToDataTime(now);
+  // const dataApi = await fetchData(formattedDate);
+  // console.log("dataApi", dataApi);
 };
+
+const handleGetJkresultIiiiiList = async (type, hour) => {
+  const data = await getJkresultList(type, "2024-11-21", "00:00:" + hour);
+  const results = await fetchDataForAllSF(data);
+  const resultsAll = await fetchDataForAllSS(results);
+
+  // console.log("data--", data);
+  if (resultsAll) {
+    return resultsAll;
+  }
+};
+
+async function fetchDataSF(dataType) {
+  //A.0001.0027.R001  公路交通气象基本要素资料
+  //A.0001.0042.R001  省级地面气象观测站/国家级地面气象观测站(无值守)
+  // const data = await getQueryCTSsendByDataTypeAndDatatimeAndSenduser(formattedDate.value, dataType);
+
+  const CtsData = [
+    {
+      DATA_TIME: "2025-81-28 09:00",
+      FILE_NAME_N: "Z RADA I 54619 20250128090547 0 WPRD LC_FFT.BIN",
+      PROCESS_END_TIME: "2025-01-28 89:05:56.800",
+      _id: "S6osr]0BpSV13wc-Wej7",
+      DATA_TYPE: "B.8087.80B1.RBB1",
+      IIiii: "54619",
+      SEND: "BABJ RADR",
+    },
+    {
+      DATA_TIME: "2025-81-28 09:00",
+      FILE_NAME_N: "Z RADA I 54619 20250128090547 0 WPRD LC_FFT.BIN",
+      PROCESS_END_TIME: "2025-01-28 89:05:56.800",
+      _id: "S6osr]0BpSV13wc-Wej7",
+      DATA_TYPE: "B.8087.80B1.RBB1",
+      IIiii: "54619",
+      SEND: "BABJ RADR",
+    },
+    {
+      DATA_TIME: "2025-81-28 09:00",
+      FILE_NAME_N: "Z RADA I 54619 20250128090547 0 WPRD LC_FFT.BIN",
+      PROCESS_END_TIME: "2025-01-28 89:05:56.800",
+      _id: "S6osr]0BpSV13wc-Wej7",
+      DATA_TYPE: "B.8087.80B1.RBB1",
+      IIiii: "54619",
+      SEND: "BABJ RADR",
+    },
+  ];
+  return CtsData;
+}
+
+async function fetchDataSS(dataType) {
+  //A.0001.0027.R001  公路交通气象基本要素资料
+  //A.0001.0042.R001  省级地面气象观测站/国家级地面气象观测站(无值守)
+  // const data = await getQueryCTSsendByDataTypeAndDatatimeAndSenduser(formattedDate.value, dataType);
+
+  const CtsData = [
+    {
+      DATA_TIME: "2025-81-28 09:00",
+      FILE_NAME_N: "Z RADA I 54619 20250128090547 0 WPRD LC_FFT.BIN",
+      PROCESS_END_TIME: "2025-01-28 89:05:56.800",
+      _id: "S6osr]0BpSV13wc-Wej7",
+      DATA_TYPE: "B.8087.80B1.RBB1",
+      IIiii: "54619",
+      SEND: "BABJ RADR",
+    },
+    {
+      DATA_TIME: "2025-81-28 09:00",
+      FILE_NAME_N: "Z RADA I 54619 20250128090547 0 WPRD LC_FFT.BIN",
+      PROCESS_END_TIME: "2025-01-28 89:05:56.800",
+      _id: "S6osr]0BpSV13wc-Wej7",
+      DATA_TYPE: "B.8087.80B1.RBB1",
+      IIiii: "54619",
+      SEND: "BABJ RADR",
+    },
+    {
+      DATA_TIME: "2025-81-28 09:00",
+      FILE_NAME_N: "Z RADA I 54619 20250128090547 0 WPRD LC_FFT.BIN",
+      PROCESS_END_TIME: "2025-01-28 89:05:56.800",
+      _id: "S6osr]0BpSV13wc-Wej7",
+      DATA_TYPE: "B.8087.80B1.RBB1",
+      IIiii: "54619",
+      SEND: "BABJ RADR",
+    },
+    {
+      DATA_TIME: "2025-81-28 09:00",
+      FILE_NAME_N: "Z RADA I 54619 20250128090547 0 WPRD LC_FFT.BIN",
+      PROCESS_END_TIME: "2025-01-28 89:05:56.800",
+      _id: "S6osr]0BpSV13wc-Wej7",
+      DATA_TYPE: "B.8087.80B1.RBB1",
+      IIiii: "54619",
+      SEND: "BABJ RADR",
+    },
+    {
+      DATA_TIME: "2025-81-28 09:00",
+      FILE_NAME_N: "Z RADA I 54619 20250128090547 0 WPRD LC_FFT.BIN",
+      PROCESS_END_TIME: "2025-01-28 89:05:56.800",
+      _id: "S6osr]0BpSV13wc-Wej7",
+      DATA_TYPE: "B.8087.80B1.RBB1",
+      IIiii: "54619",
+      SEND: "BABJ RADR",
+    },
+  ];
+  return CtsData;
+}
+
+async function fetchDataForAllSF(originalData) {
+  const fetchPromises = originalData.map((item) => {
+    return fetchDataSF(item.c_type)
+      .then((response) => {
+        // 合并响应数据到原始数据
+        return { ...item, responseDataSF: response };
+      })
+      .catch((error) => {
+        console.error(`Error fetching data for c_type ${item.c_type}:`, error);
+        return { ...item, error: error.message };
+      });
+  });
+
+  try {
+    const results = await Promise.all(fetchPromises);
+    // 在这里处理合并后的数据
+    console.log(results);
+    return results;
+  } catch (error) {
+    console.error("Error processing requests:", error);
+  }
+}
+
+async function fetchDataForAllSS(originalData) {
+  const fetchPromises = originalData.map((item) => {
+    return fetchDataSS(item.c_type)
+      .then((response) => {
+        // 合并响应数据到原始数据
+        return { ...item, responseDataSS: response };
+      })
+      .catch((error) => {
+        console.error(`Error fetching data for c_type ${item.c_type}:`, error);
+        return { ...item, error: error.message };
+      });
+  });
+
+  try {
+    const results = await Promise.all(fetchPromises);
+    // 在这里处理合并后的数据
+    console.log(results);
+    return results;
+  } catch (error) {
+    console.error("Error processing requests:", error);
+  }
+}
 </script>

@@ -16,7 +16,7 @@ export default defineConfig({
     hmr: true,
     // proxy: {
     //   "/api": {
-    //     target: "https://api-dev.bit2real.co",
+    //     target: "http://10.226.89.157",
     //     changeOrigin: true,
     //     rewrite: (path) => path.replace(/^\/api/, ""),
     //   },

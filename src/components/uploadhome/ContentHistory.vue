@@ -109,16 +109,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 
 const drawer = ref(false);
 
-const props = defineProps<{
+ defineProps<{
   nowValue: nowValueType[];
   HighAltitude: nowValueType[];
 }>();
 const tableHeader1 = [
-  { prop: "name", label: "资料子类型" },
+  { prop: "d_name", label: "资料子类型" },
   { prop: "time", label: "时次" },
   { prop: "actualReceiptReceivable", label: "实收/应收" },
   { prop: "ActualShouldIssued", label: "实发/应发" },
