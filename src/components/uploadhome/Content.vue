@@ -187,11 +187,12 @@ const drawerInfoDetail = ref([]);
 // const drawer = ref(false)
 const drawerMiss = ref(false);
 
- defineProps<{
+ const props = defineProps<{
   nowValue: any[];
   HighAltitude: any[];
   formattedHour: string;
 }>();
+
 
 const tableHeader = [
 { prop: "d_name", label: "数据名" },

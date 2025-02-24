@@ -1,3 +1,38 @@
+/*
+ Navicat Premium Dump SQL
+
+ Source Server         : test-sql-qx
+ Source Server Type    : MySQL
+ Source Server Version : 90100 (9.1.0)
+ Source Host           : localhost:3306
+ Source Schema         : my_database
+
+ Target Server Type    : MySQL
+ Target Server Version : 90100 (9.1.0)
+ File Encoding         : 65001
+
+ Date: 14/02/2025 22:56:12
+*/
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for qbreson_result
+-- ----------------------------
+DROP TABLE IF EXISTS `qbreson_result`;
+CREATE TABLE `qbreson_result` (
+  `d_name_id` int DEFAULT NULL,
+  `IIIII` varchar(255) DEFAULT NULL,
+  `qb_time` varchar(255) DEFAULT NULL,
+  `qb_num` int DEFAULT NULL,
+  `qb_reason` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Records of qbreson_result
+-- ----------------------------
+BEGIN;
 INSERT INTO `qbreson_result` (`d_name_id`, `IIIII`, `qb_time`, `qb_num`, `qb_reason`) VALUES (5, '54523', '16日16时', 1, '该站发报软件故障');
 INSERT INTO `qbreson_result` (`d_name_id`, `IIIII`, `qb_time`, `qb_num`, `qb_reason`) VALUES (5, '54523', '21日19时', 1, '该站延时上传');
 INSERT INTO `qbreson_result` (`d_name_id`, `IIIII`, `qb_time`, `qb_num`, `qb_reason`) VALUES (5, '54523', '27日17时', 1, '194服务器传输软件故障');
@@ -252,3 +287,6 @@ INSERT INTO `qbreson_result` (`d_name_id`, `IIIII`, `qb_time`, `qb_num`, `qb_rea
 INSERT INTO `qbreson_result` (`d_name_id`, `IIIII`, `qb_time`, `qb_num`, `qb_reason`) VALUES (144, '54623', '20日00时', 1, '市局CTS分发故障');
 INSERT INTO `qbreson_result` (`d_name_id`, `IIIII`, `qb_time`, `qb_num`, `qb_reason`) VALUES (144, '54623', '22日16时至18时', 3, '该站网络故障');
 INSERT INTO `qbreson_result` (`d_name_id`, `IIIII`, `qb_time`, `qb_num`, `qb_reason`) VALUES (144, '54645', '20日00时', 1, '市局CTS分发故障');
+COMMIT;
+
+SET FOREIGN_KEY_CHECKS = 1;
